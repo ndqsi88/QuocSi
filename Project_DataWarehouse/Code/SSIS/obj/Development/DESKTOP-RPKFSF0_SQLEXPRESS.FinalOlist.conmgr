@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="DESKTOP-RPKFSF0_SQLEXPRESS.FinalOlist"
+  DTS:DTSID="{FD6B4E46-2670-403E-A3B9-C06CB2D47A14}"
+  DTS:CreationName="OLEDB">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectRetryCount="1"
+      DTS:ConnectRetryInterval="5"
+      DTS:ConnectionString="Data Source=DESKTOP-RPKFSF0\SQLEXPRESS;Initial Catalog=FinalOlist;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-Olist Integration Services-{FD6B4E46-2670-403E-A3B9-C06CB2D47A14}DESKTOP-RPKFSF0\SQLEXPRESS.FinalOlist;Auto Translate=False;" />
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

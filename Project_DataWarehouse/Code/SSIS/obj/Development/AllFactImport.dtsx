@@ -1,0 +1,2864 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="5/22/2024 12:14:22 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-RPKFSF0"
+  DTS:CreatorName="DESKTOP-RPKFSF0\kienn"
+  DTS:DTSID="{174191E1-CE36-4210-BB73-CBD8E69D6AB9}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5397.1"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Package1"
+  DTS:PackageType="5"
+  DTS:VersionBuild="12"
+  DTS:VersionGUID="{5271C679-4570-42D6-805B-8DFD33E43CF0}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-RPKFSF0\SQLEXPRESS.FinalOlist]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{E83B9576-29F5-49DF-93E7-6AEFE6F1AE8D}"
+      DTS:ObjectName="DESKTOP-RPKFSF0\SQLEXPRESS.FinalOlist">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=DESKTOP-RPKFSF0\SQLEXPRESS;Initial Catalog=FinalOlist;Provider=SQLOLEDB.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-RPKFSF0\SQLEXPRESS.FinalStage]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{7AF161DD-E3FE-4FD4-909B-6EA43557CF11}"
+      DTS:ObjectName="DESKTOP-RPKFSF0\SQLEXPRESS.FinalStage">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=DESKTOP-RPKFSF0\SQLEXPRESS;Initial Catalog=FinalStage;Provider=SQLOLEDB.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-RPKFSF0\SQLEXPRESS.FinalStage 1]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{1A1FF47B-E0D1-4002-96F1-D7D64C67EAAC}"
+      DTS:ObjectName="DESKTOP-RPKFSF0\SQLEXPRESS.FinalStage 1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=DESKTOP-RPKFSF0\SQLEXPRESS;Initial Catalog=FinalStage;Provider=SQLOLEDB.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\DF - Stage Sales"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{DC0D7D35-25F6-4325-A787-D8008C090351}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DF - Stage Sales"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DF - Stage Sales\DST - Stage stgSales"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="DST - Stage stgSales"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[stgSales]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DF - Stage Sales\DST - Stage stgSales.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-RPKFSF0\SQLEXPRESS.FinalStage]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-RPKFSF0\SQLEXPRESS.FinalStage]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DF - Stage Sales\DST - Stage stgSales.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DF - Stage Sales\DST - Stage stgSales.Inputs[OLE DB Destination Input].Columns[price]"
+                      cachedDataType="r4"
+                      cachedName="price"
+                      externalMetadataColumnId="Package\DF - Stage Sales\DST - Stage stgSales.Inputs[OLE DB Destination Input].ExternalColumns[price]"
+                      lineageId="Package\DF - Stage Sales\SRC - Olist Sales.Outputs[OLE DB Source Output].Columns[price]" />
+                    <inputColumn
+                      refId="Package\DF - Stage Sales\DST - Stage stgSales.Inputs[OLE DB Destination Input].Columns[freight_value]"
+                      cachedDataType="r4"
+                      cachedName="freight_value"
+                      externalMetadataColumnId="Package\DF - Stage Sales\DST - Stage stgSales.Inputs[OLE DB Destination Input].ExternalColumns[freight_value]"
+                      lineageId="Package\DF - Stage Sales\SRC - Olist Sales.Outputs[OLE DB Source Output].Columns[freight_value]" />
+                    <inputColumn
+                      refId="Package\DF - Stage Sales\DST - Stage stgSales.Inputs[OLE DB Destination Input].Columns[payment_value]"
+                      cachedDataType="r4"
+                      cachedName="payment_value"
+                      externalMetadataColumnId="Package\DF - Stage Sales\DST - Stage stgSales.Inputs[OLE DB Destination Input].ExternalColumns[payment_value]"
+                      lineageId="Package\DF - Stage Sales\SRC - Olist Sales.Outputs[OLE DB Source Output].Columns[payment_value]" />
+                    <inputColumn
+                      refId="Package\DF - Stage Sales\DST - Stage stgSales.Inputs[OLE DB Destination Input].Columns[order_id]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="order_id"
+                      externalMetadataColumnId="Package\DF - Stage Sales\DST - Stage stgSales.Inputs[OLE DB Destination Input].ExternalColumns[order_id]"
+                      lineageId="Package\DF - Stage Sales\SRC - Olist Sales.Outputs[OLE DB Source Output].Columns[order_id]" />
+                    <inputColumn
+                      refId="Package\DF - Stage Sales\DST - Stage stgSales.Inputs[OLE DB Destination Input].Columns[customer_id]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="customer_id"
+                      externalMetadataColumnId="Package\DF - Stage Sales\DST - Stage stgSales.Inputs[OLE DB Destination Input].ExternalColumns[customer_id]"
+                      lineageId="Package\DF - Stage Sales\SRC - Olist Sales.Outputs[OLE DB Source Output].Columns[customer_id]" />
+                    <inputColumn
+                      refId="Package\DF - Stage Sales\DST - Stage stgSales.Inputs[OLE DB Destination Input].Columns[seller_id]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="seller_id"
+                      externalMetadataColumnId="Package\DF - Stage Sales\DST - Stage stgSales.Inputs[OLE DB Destination Input].ExternalColumns[seller_id]"
+                      lineageId="Package\DF - Stage Sales\SRC - Olist Sales.Outputs[OLE DB Source Output].Columns[seller_id]" />
+                    <inputColumn
+                      refId="Package\DF - Stage Sales\DST - Stage stgSales.Inputs[OLE DB Destination Input].Columns[product_id]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="product_id"
+                      externalMetadataColumnId="Package\DF - Stage Sales\DST - Stage stgSales.Inputs[OLE DB Destination Input].ExternalColumns[product_id]"
+                      lineageId="Package\DF - Stage Sales\SRC - Olist Sales.Outputs[OLE DB Source Output].Columns[product_id]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DF - Stage Sales\DST - Stage stgSales.Inputs[OLE DB Destination Input].ExternalColumns[price]"
+                      dataType="r4"
+                      name="price" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Stage Sales\DST - Stage stgSales.Inputs[OLE DB Destination Input].ExternalColumns[freight_value]"
+                      dataType="r4"
+                      name="freight_value" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Stage Sales\DST - Stage stgSales.Inputs[OLE DB Destination Input].ExternalColumns[payment_value]"
+                      dataType="r4"
+                      name="payment_value" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Stage Sales\DST - Stage stgSales.Inputs[OLE DB Destination Input].ExternalColumns[order_id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="order_id" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Stage Sales\DST - Stage stgSales.Inputs[OLE DB Destination Input].ExternalColumns[customer_id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="customer_id" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Stage Sales\DST - Stage stgSales.Inputs[OLE DB Destination Input].ExternalColumns[seller_id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="seller_id" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Stage Sales\DST - Stage stgSales.Inputs[OLE DB Destination Input].ExternalColumns[product_id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="product_id" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DF - Stage Sales\DST - Stage stgSales.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\DF - Stage Sales\DST - Stage stgSales.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DF - Stage Sales\DST - Stage stgSales.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DF - Stage Sales\DST - Stage stgSales.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DF - Stage Sales\DST - Stage stgSales.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DF - Stage Sales\DST - Stage stgSales.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DF - Stage Sales\SRC - Olist Sales"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="SRC - Olist Sales"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT olist_order_items_dataset.order_id, olist_order_customer_dataset.customer_id, olist_seller_dataset.seller_id, olist_products_dataset.product_id, olist_order_items_dataset.price, olist_order_items_dataset.freight_value, 
+                  olist_order_payments_dataset.payment_value
+FROM     olist_products_dataset INNER JOIN
+                  olist_order_items_dataset ON olist_products_dataset.product_id = olist_order_items_dataset.product_id INNER JOIN
+                  olist_seller_dataset ON olist_order_items_dataset.seller_id = olist_seller_dataset.seller_id INNER JOIN
+                  olist_order_payments_dataset ON olist_order_items_dataset.order_id = olist_order_payments_dataset.order_id CROSS JOIN
+                  olist_order_customer_dataset</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DF - Stage Sales\SRC - Olist Sales.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-RPKFSF0\SQLEXPRESS.FinalOlist]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-RPKFSF0\SQLEXPRESS.FinalOlist]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DF - Stage Sales\SRC - Olist Sales.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DF - Stage Sales\SRC - Olist Sales.Outputs[OLE DB Source Output].Columns[price]"
+                      dataType="r4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF - Stage Sales\SRC - Olist Sales.Outputs[OLE DB Source Output].ExternalColumns[price]"
+                      lineageId="Package\DF - Stage Sales\SRC - Olist Sales.Outputs[OLE DB Source Output].Columns[price]"
+                      name="price"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF - Stage Sales\SRC - Olist Sales.Outputs[OLE DB Source Output].Columns[freight_value]"
+                      dataType="r4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF - Stage Sales\SRC - Olist Sales.Outputs[OLE DB Source Output].ExternalColumns[freight_value]"
+                      lineageId="Package\DF - Stage Sales\SRC - Olist Sales.Outputs[OLE DB Source Output].Columns[freight_value]"
+                      name="freight_value"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF - Stage Sales\SRC - Olist Sales.Outputs[OLE DB Source Output].Columns[payment_value]"
+                      dataType="r4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF - Stage Sales\SRC - Olist Sales.Outputs[OLE DB Source Output].ExternalColumns[payment_value]"
+                      lineageId="Package\DF - Stage Sales\SRC - Olist Sales.Outputs[OLE DB Source Output].Columns[payment_value]"
+                      name="payment_value"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF - Stage Sales\SRC - Olist Sales.Outputs[OLE DB Source Output].Columns[order_id]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF - Stage Sales\SRC - Olist Sales.Outputs[OLE DB Source Output].ExternalColumns[order_id]"
+                      length="50"
+                      lineageId="Package\DF - Stage Sales\SRC - Olist Sales.Outputs[OLE DB Source Output].Columns[order_id]"
+                      name="order_id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF - Stage Sales\SRC - Olist Sales.Outputs[OLE DB Source Output].Columns[customer_id]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF - Stage Sales\SRC - Olist Sales.Outputs[OLE DB Source Output].ExternalColumns[customer_id]"
+                      length="50"
+                      lineageId="Package\DF - Stage Sales\SRC - Olist Sales.Outputs[OLE DB Source Output].Columns[customer_id]"
+                      name="customer_id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF - Stage Sales\SRC - Olist Sales.Outputs[OLE DB Source Output].Columns[seller_id]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF - Stage Sales\SRC - Olist Sales.Outputs[OLE DB Source Output].ExternalColumns[seller_id]"
+                      length="50"
+                      lineageId="Package\DF - Stage Sales\SRC - Olist Sales.Outputs[OLE DB Source Output].Columns[seller_id]"
+                      name="seller_id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF - Stage Sales\SRC - Olist Sales.Outputs[OLE DB Source Output].Columns[product_id]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF - Stage Sales\SRC - Olist Sales.Outputs[OLE DB Source Output].ExternalColumns[product_id]"
+                      length="50"
+                      lineageId="Package\DF - Stage Sales\SRC - Olist Sales.Outputs[OLE DB Source Output].Columns[product_id]"
+                      name="product_id"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DF - Stage Sales\SRC - Olist Sales.Outputs[OLE DB Source Output].ExternalColumns[price]"
+                      dataType="r4"
+                      name="price" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Stage Sales\SRC - Olist Sales.Outputs[OLE DB Source Output].ExternalColumns[freight_value]"
+                      dataType="r4"
+                      name="freight_value" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Stage Sales\SRC - Olist Sales.Outputs[OLE DB Source Output].ExternalColumns[payment_value]"
+                      dataType="r4"
+                      name="payment_value" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Stage Sales\SRC - Olist Sales.Outputs[OLE DB Source Output].ExternalColumns[order_id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="order_id" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Stage Sales\SRC - Olist Sales.Outputs[OLE DB Source Output].ExternalColumns[customer_id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="customer_id" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Stage Sales\SRC - Olist Sales.Outputs[OLE DB Source Output].ExternalColumns[seller_id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="seller_id" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Stage Sales\SRC - Olist Sales.Outputs[OLE DB Source Output].ExternalColumns[product_id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="product_id" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DF - Stage Sales\SRC - Olist Sales.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DF - Stage Sales\SRC - Olist Sales.Outputs[OLE DB Source Error Output].Columns[order_id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\DF - Stage Sales\SRC - Olist Sales.Outputs[OLE DB Source Error Output].Columns[order_id]"
+                      name="order_id" />
+                    <outputColumn
+                      refId="Package\DF - Stage Sales\SRC - Olist Sales.Outputs[OLE DB Source Error Output].Columns[customer_id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\DF - Stage Sales\SRC - Olist Sales.Outputs[OLE DB Source Error Output].Columns[customer_id]"
+                      name="customer_id" />
+                    <outputColumn
+                      refId="Package\DF - Stage Sales\SRC - Olist Sales.Outputs[OLE DB Source Error Output].Columns[seller_id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\DF - Stage Sales\SRC - Olist Sales.Outputs[OLE DB Source Error Output].Columns[seller_id]"
+                      name="seller_id" />
+                    <outputColumn
+                      refId="Package\DF - Stage Sales\SRC - Olist Sales.Outputs[OLE DB Source Error Output].Columns[product_id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\DF - Stage Sales\SRC - Olist Sales.Outputs[OLE DB Source Error Output].Columns[product_id]"
+                      name="product_id" />
+                    <outputColumn
+                      refId="Package\DF - Stage Sales\SRC - Olist Sales.Outputs[OLE DB Source Error Output].Columns[price]"
+                      dataType="r4"
+                      lineageId="Package\DF - Stage Sales\SRC - Olist Sales.Outputs[OLE DB Source Error Output].Columns[price]"
+                      name="price" />
+                    <outputColumn
+                      refId="Package\DF - Stage Sales\SRC - Olist Sales.Outputs[OLE DB Source Error Output].Columns[freight_value]"
+                      dataType="r4"
+                      lineageId="Package\DF - Stage Sales\SRC - Olist Sales.Outputs[OLE DB Source Error Output].Columns[freight_value]"
+                      name="freight_value" />
+                    <outputColumn
+                      refId="Package\DF - Stage Sales\SRC - Olist Sales.Outputs[OLE DB Source Error Output].Columns[payment_value]"
+                      dataType="r4"
+                      lineageId="Package\DF - Stage Sales\SRC - Olist Sales.Outputs[OLE DB Source Error Output].Columns[payment_value]"
+                      name="payment_value" />
+                    <outputColumn
+                      refId="Package\DF - Stage Sales\SRC - Olist Sales.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DF - Stage Sales\SRC - Olist Sales.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DF - Stage Sales\SRC - Olist Sales.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DF - Stage Sales\SRC - Olist Sales.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DF - Stage Sales.Paths[OLE DB Source Output]"
+              endId="Package\DF - Stage Sales\DST - Stage stgSales.Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\DF - Stage Sales\SRC - Olist Sales.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\DF Load to FactSales"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{3CE2AFBC-397F-4FF8-8E2E-20E29E5B8B36}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DF Load to FactSales"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DF Load to FactSales\DimCustomer"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="DimCustomer"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[dim_customer]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[dim_customer]) [refTable]
+where [refTable].[customer_id] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="customer_key" dataType="DT_I8" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="customer_id" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="customer_unique_id" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="customer_zip_code_prefix" dataType="DT_STR" length="10" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="customer_city" dataType="DT_STR" length="255" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="customer_state" dataType="DT_STR" length="2" precision="0" scale="0" codePage="1252"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\DF Load to FactSales\SRC - stgSales.Outputs[OLE DB Source Output].Columns[customer_id]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DF Load to FactSales\DimCustomer.Connections[OleDbConnection]"
+                  connectionManagerID="{36598EE3-0FF7-46B0-9ECF-03D0E6230B00}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-RPKFSF0_SQLEXPRESS.FinalDimFact]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DF Load to FactSales\DimCustomer.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DF Load to FactSales\DimCustomer.Inputs[Lookup Input].Columns[customer_id]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="customer_id"
+                      lineageId="Package\DF Load to FactSales\SRC - stgSales.Outputs[OLE DB Source Output].Columns[customer_id]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">customer_id</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DF Load to FactSales\DimCustomer.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\DF Load to FactSales\DimCustomer.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DF Load to FactSales\DimCustomer.Outputs[Lookup Match Output].Columns[customer_key]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\DF Load to FactSales\DimCustomer.Outputs[Lookup Match Output].Columns[customer_key]"
+                      name="customer_key"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">customer_key</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DF Load to FactSales\DimCustomer.Outputs[Lookup Match Output].Columns[customer_id]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Copy Column"
+                      length="50"
+                      lineageId="Package\DF Load to FactSales\DimCustomer.Outputs[Lookup Match Output].Columns[customer_id]"
+                      name="customer_id"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">customer_id</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DF Load to FactSales\DimCustomer.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\DF Load to FactSales\DimCustomer.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DF Load to FactSales\DimCustomer.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\DF Load to FactSales\DimCustomer.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DF Load to FactSales\DimCustomer.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DF Load to FactSales\DimCustomer.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DF Load to FactSales\DimCustomer.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DF Load to FactSales\DimCustomer.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DF Load to FactSales\DimOrderItem"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="DimOrderItem"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[dim_order_items]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[dim_order_items]) [refTable]
+where [refTable].[order_id] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="order_item_key" dataType="DT_I8" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="order_id" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="order_item_id" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="product_id" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="seller_id" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="shipping_limit_date" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="price" dataType="DT_R4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="freight_value" dataType="DT_R4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\DF Load to FactSales\SRC - stgSales.Outputs[OLE DB Source Output].Columns[order_id]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DF Load to FactSales\DimOrderItem.Connections[OleDbConnection]"
+                  connectionManagerID="{36598EE3-0FF7-46B0-9ECF-03D0E6230B00}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-RPKFSF0_SQLEXPRESS.FinalDimFact]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DF Load to FactSales\DimOrderItem.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DF Load to FactSales\DimOrderItem.Inputs[Lookup Input].Columns[order_id]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="order_id"
+                      lineageId="Package\DF Load to FactSales\SRC - stgSales.Outputs[OLE DB Source Output].Columns[order_id]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">order_id</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DF Load to FactSales\DimOrderItem.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\DF Load to FactSales\DimOrderItem.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DF Load to FactSales\DimOrderItem.Outputs[Lookup Match Output].Columns[price]"
+                      dataType="r4"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\DF Load to FactSales\DimOrderItem.Outputs[Lookup Match Output].Columns[price]"
+                      name="price"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">price</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DF Load to FactSales\DimOrderItem.Outputs[Lookup Match Output].Columns[freight_value]"
+                      dataType="r4"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\DF Load to FactSales\DimOrderItem.Outputs[Lookup Match Output].Columns[freight_value]"
+                      name="freight_value"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">freight_value</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DF Load to FactSales\DimOrderItem.Outputs[Lookup Match Output].Columns[order_id]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Copy Column"
+                      length="50"
+                      lineageId="Package\DF Load to FactSales\DimOrderItem.Outputs[Lookup Match Output].Columns[order_id]"
+                      name="order_id"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">order_id</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DF Load to FactSales\DimOrderItem.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\DF Load to FactSales\DimOrderItem.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DF Load to FactSales\DimOrderItem.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\DF Load to FactSales\DimOrderItem.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DF Load to FactSales\DimOrderItem.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DF Load to FactSales\DimOrderItem.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DF Load to FactSales\DimOrderItem.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DF Load to FactSales\DimOrderItem.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DF Load to FactSales\DimOrderPayment"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="DimOrderPayment"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[dim_order_payment]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[dim_order_payment]) [refTable]
+where [refTable].[order_id] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="payment_key" dataType="DT_I8" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="order_id" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="payment_sequential" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="payment_type" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="payment_installments" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="payment_value" dataType="DT_R4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\DF Load to FactSales\DimOrderItem.Outputs[Lookup Match Output].Columns[order_id]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DF Load to FactSales\DimOrderPayment.Connections[OleDbConnection]"
+                  connectionManagerID="{36598EE3-0FF7-46B0-9ECF-03D0E6230B00}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-RPKFSF0_SQLEXPRESS.FinalDimFact]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DF Load to FactSales\DimOrderPayment.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DF Load to FactSales\DimOrderPayment.Inputs[Lookup Input].Columns[order_id]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="order_id"
+                      lineageId="Package\DF Load to FactSales\DimOrderItem.Outputs[Lookup Match Output].Columns[order_id]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">order_id</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DF Load to FactSales\DimOrderPayment.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\DF Load to FactSales\DimOrderPayment.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DF Load to FactSales\DimOrderPayment.Outputs[Lookup Match Output].Columns[payment_value]"
+                      dataType="r4"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\DF Load to FactSales\DimOrderPayment.Outputs[Lookup Match Output].Columns[payment_value]"
+                      name="payment_value"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">payment_value</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DF Load to FactSales\DimOrderPayment.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\DF Load to FactSales\DimOrderPayment.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DF Load to FactSales\DimOrderPayment.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\DF Load to FactSales\DimOrderPayment.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DF Load to FactSales\DimOrderPayment.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DF Load to FactSales\DimOrderPayment.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DF Load to FactSales\DimOrderPayment.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DF Load to FactSales\DimOrderPayment.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DF Load to FactSales\DimProduct"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="DimProduct"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[dim_product]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[dim_product]) [refTable]
+where [refTable].[product_id] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="product_key" dataType="DT_I8" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="product_id" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="product_category_name" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="product_category_name_english" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="product_name_lenght" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="product_description_lenght" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="product_photos_qty" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="product_weight_g" dataType="DT_R4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="product_length_cm" dataType="DT_R4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="product_height_cm" dataType="DT_R4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="product_width_cm" dataType="DT_R4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\DF Load to FactSales\SRC - stgSales.Outputs[OLE DB Source Output].Columns[product_id]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DF Load to FactSales\DimProduct.Connections[OleDbConnection]"
+                  connectionManagerID="{36598EE3-0FF7-46B0-9ECF-03D0E6230B00}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-RPKFSF0_SQLEXPRESS.FinalDimFact]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DF Load to FactSales\DimProduct.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DF Load to FactSales\DimProduct.Inputs[Lookup Input].Columns[product_id]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="product_id"
+                      lineageId="Package\DF Load to FactSales\SRC - stgSales.Outputs[OLE DB Source Output].Columns[product_id]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">product_id</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DF Load to FactSales\DimProduct.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\DF Load to FactSales\DimProduct.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DF Load to FactSales\DimProduct.Outputs[Lookup Match Output].Columns[product_key]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\DF Load to FactSales\DimProduct.Outputs[Lookup Match Output].Columns[product_key]"
+                      name="product_key"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">product_key</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DF Load to FactSales\DimProduct.Outputs[Lookup Match Output].Columns[product_id]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Copy Column"
+                      length="50"
+                      lineageId="Package\DF Load to FactSales\DimProduct.Outputs[Lookup Match Output].Columns[product_id]"
+                      name="product_id"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">product_id</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DF Load to FactSales\DimProduct.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\DF Load to FactSales\DimProduct.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DF Load to FactSales\DimProduct.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\DF Load to FactSales\DimProduct.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DF Load to FactSales\DimProduct.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DF Load to FactSales\DimProduct.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DF Load to FactSales\DimProduct.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DF Load to FactSales\DimProduct.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DF Load to FactSales\DimSeller"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="DimSeller"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[dim_seller]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[dim_seller]) [refTable]
+where [refTable].[seller_id] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="seller_key" dataType="DT_I8" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="seller_id" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="seller_zip_code_prefix" dataType="DT_STR" length="10" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="seller_city" dataType="DT_STR" length="255" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="seller_state" dataType="DT_STR" length="2" precision="0" scale="0" codePage="1252"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\DF Load to FactSales\SRC - stgSales.Outputs[OLE DB Source Output].Columns[seller_id]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DF Load to FactSales\DimSeller.Connections[OleDbConnection]"
+                  connectionManagerID="{36598EE3-0FF7-46B0-9ECF-03D0E6230B00}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-RPKFSF0_SQLEXPRESS.FinalDimFact]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DF Load to FactSales\DimSeller.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DF Load to FactSales\DimSeller.Inputs[Lookup Input].Columns[seller_id]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="seller_id"
+                      lineageId="Package\DF Load to FactSales\SRC - stgSales.Outputs[OLE DB Source Output].Columns[seller_id]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">seller_id</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DF Load to FactSales\DimSeller.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\DF Load to FactSales\DimSeller.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DF Load to FactSales\DimSeller.Outputs[Lookup Match Output].Columns[seller_key]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\DF Load to FactSales\DimSeller.Outputs[Lookup Match Output].Columns[seller_key]"
+                      name="seller_key"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">seller_key</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DF Load to FactSales\DimSeller.Outputs[Lookup Match Output].Columns[seller_id]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Copy Column"
+                      length="50"
+                      lineageId="Package\DF Load to FactSales\DimSeller.Outputs[Lookup Match Output].Columns[seller_id]"
+                      name="seller_id"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">seller_id</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DF Load to FactSales\DimSeller.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\DF Load to FactSales\DimSeller.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DF Load to FactSales\DimSeller.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\DF Load to FactSales\DimSeller.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DF Load to FactSales\DimSeller.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DF Load to FactSales\DimSeller.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DF Load to FactSales\DimSeller.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DF Load to FactSales\DimSeller.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DF Load to FactSales\Insert Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Insert Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[fact_sales]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DF Load to FactSales\Insert Destination.Connections[OleDbConnection]"
+                  connectionManagerID="{36598EE3-0FF7-46B0-9ECF-03D0E6230B00}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-RPKFSF0_SQLEXPRESS.FinalDimFact]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DF Load to FactSales\Insert Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DF Load to FactSales\Insert Destination.Inputs[OLE DB Destination Input].Columns[customer_key]"
+                      cachedDataType="i8"
+                      cachedName="customer_key"
+                      externalMetadataColumnId="Package\DF Load to FactSales\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[customer_key]"
+                      lineageId="Package\DF Load to FactSales\DimCustomer.Outputs[Lookup Match Output].Columns[customer_key]" />
+                    <inputColumn
+                      refId="Package\DF Load to FactSales\Insert Destination.Inputs[OLE DB Destination Input].Columns[seller_key]"
+                      cachedDataType="i8"
+                      cachedName="seller_key"
+                      externalMetadataColumnId="Package\DF Load to FactSales\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[seller_key]"
+                      lineageId="Package\DF Load to FactSales\DimSeller.Outputs[Lookup Match Output].Columns[seller_key]" />
+                    <inputColumn
+                      refId="Package\DF Load to FactSales\Insert Destination.Inputs[OLE DB Destination Input].Columns[product_key]"
+                      cachedDataType="i8"
+                      cachedName="product_key"
+                      externalMetadataColumnId="Package\DF Load to FactSales\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[product_key]"
+                      lineageId="Package\DF Load to FactSales\DimProduct.Outputs[Lookup Match Output].Columns[product_key]" />
+                    <inputColumn
+                      refId="Package\DF Load to FactSales\Insert Destination.Inputs[OLE DB Destination Input].Columns[order_id]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="order_id"
+                      externalMetadataColumnId="Package\DF Load to FactSales\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[order_id]"
+                      lineageId="Package\DF Load to FactSales\DimOrderItem.Outputs[Lookup Match Output].Columns[order_id]" />
+                    <inputColumn
+                      refId="Package\DF Load to FactSales\Insert Destination.Inputs[OLE DB Destination Input].Columns[customer_id]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="customer_id"
+                      externalMetadataColumnId="Package\DF Load to FactSales\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[customer_id]"
+                      lineageId="Package\DF Load to FactSales\DimCustomer.Outputs[Lookup Match Output].Columns[customer_id]" />
+                    <inputColumn
+                      refId="Package\DF Load to FactSales\Insert Destination.Inputs[OLE DB Destination Input].Columns[seller_id]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="seller_id"
+                      externalMetadataColumnId="Package\DF Load to FactSales\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[seller_id]"
+                      lineageId="Package\DF Load to FactSales\DimSeller.Outputs[Lookup Match Output].Columns[seller_id]" />
+                    <inputColumn
+                      refId="Package\DF Load to FactSales\Insert Destination.Inputs[OLE DB Destination Input].Columns[product_id]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="product_id"
+                      externalMetadataColumnId="Package\DF Load to FactSales\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[product_id]"
+                      lineageId="Package\DF Load to FactSales\DimProduct.Outputs[Lookup Match Output].Columns[product_id]" />
+                    <inputColumn
+                      refId="Package\DF Load to FactSales\Insert Destination.Inputs[OLE DB Destination Input].Columns[price]"
+                      cachedDataType="r4"
+                      cachedName="price"
+                      externalMetadataColumnId="Package\DF Load to FactSales\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[price]"
+                      lineageId="Package\DF Load to FactSales\DimOrderItem.Outputs[Lookup Match Output].Columns[price]" />
+                    <inputColumn
+                      refId="Package\DF Load to FactSales\Insert Destination.Inputs[OLE DB Destination Input].Columns[freight_value]"
+                      cachedDataType="r4"
+                      cachedName="freight_value"
+                      externalMetadataColumnId="Package\DF Load to FactSales\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[freight_value]"
+                      lineageId="Package\DF Load to FactSales\DimOrderItem.Outputs[Lookup Match Output].Columns[freight_value]" />
+                    <inputColumn
+                      refId="Package\DF Load to FactSales\Insert Destination.Inputs[OLE DB Destination Input].Columns[payment_value]"
+                      cachedDataType="r4"
+                      cachedName="payment_value"
+                      externalMetadataColumnId="Package\DF Load to FactSales\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[payment_value]"
+                      lineageId="Package\DF Load to FactSales\DimOrderPayment.Outputs[Lookup Match Output].Columns[payment_value]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DF Load to FactSales\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[date_key]"
+                      dataType="i4"
+                      name="date_key" />
+                    <externalMetadataColumn
+                      refId="Package\DF Load to FactSales\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[customer_key]"
+                      dataType="i8"
+                      name="customer_key" />
+                    <externalMetadataColumn
+                      refId="Package\DF Load to FactSales\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[seller_key]"
+                      dataType="i8"
+                      name="seller_key" />
+                    <externalMetadataColumn
+                      refId="Package\DF Load to FactSales\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[product_key]"
+                      dataType="i8"
+                      name="product_key" />
+                    <externalMetadataColumn
+                      refId="Package\DF Load to FactSales\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[order_id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="order_id" />
+                    <externalMetadataColumn
+                      refId="Package\DF Load to FactSales\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[customer_id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="customer_id" />
+                    <externalMetadataColumn
+                      refId="Package\DF Load to FactSales\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[seller_id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="seller_id" />
+                    <externalMetadataColumn
+                      refId="Package\DF Load to FactSales\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[product_id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="product_id" />
+                    <externalMetadataColumn
+                      refId="Package\DF Load to FactSales\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[price]"
+                      dataType="r4"
+                      name="price" />
+                    <externalMetadataColumn
+                      refId="Package\DF Load to FactSales\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[freight_value]"
+                      dataType="r4"
+                      name="freight_value" />
+                    <externalMetadataColumn
+                      refId="Package\DF Load to FactSales\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[payment_value]"
+                      dataType="r4"
+                      name="payment_value" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DF Load to FactSales\Insert Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\DF Load to FactSales\Insert Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DF Load to FactSales\Insert Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DF Load to FactSales\Insert Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DF Load to FactSales\Insert Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DF Load to FactSales\Insert Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DF Load to FactSales\Slowly Changing FactSales"
+              componentClassID="Microsoft.SCD"
+              contactInfo="Slowly Changing Dimension;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;3"
+              description="Updates a SQL Server Analysis Services data warehouse dimension. Update dimension records that are already present and  insert dimension records that aren't. For example, update the DimProduct table of the AdventureWorksDW OLAP database with data from the Products table in the AdventureWorks OLTP database."
+              name="Slowly Changing FactSales"
+              version="3">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SELECT statement used to create a schema rowset."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT [customer_id], [customer_key], [freight_value], [order_id], [payment_value], [price], [product_id], [product_key], [seller_id], [seller_key] FROM [dbo].[fact_sales]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the WHERE clause in the SELECT statement that selects the current row among rows with identical business keys."
+                  name="CurrentRowWhere"></property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether historical attribute updates are directed to the transformation output for changing attribute updates."
+                  name="UpdateChangingAttributeHistory">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the transformation fails when columns with fixed attributes contain changes."
+                  name="FailOnFixedAttributeChange">true</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the column name for the inferred member."
+                  name="InferredMemberIndicator"></property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether inferred member updates are detected."
+                  name="EnableInferredMember">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the transformation fails when a lookup of an existing record fails."
+                  name="FailOnLookupFailure">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies that all rows in the input are new or the transformation detects the change type."
+                  name="IncomingRowChangeType"
+                  typeConverter="IncomingRowChangeType">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DF Load to FactSales\Slowly Changing FactSales.Connections[LookupConnection]"
+                  connectionManagerID="{36598EE3-0FF7-46B0-9ECF-03D0E6230B00}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-RPKFSF0_SQLEXPRESS.FinalDimFact]"
+                  description="Defines the connection to use for lookups in the dimension table"
+                  name="LookupConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DF Load to FactSales\Slowly Changing FactSales.Inputs[Slowly Changing Dimension Input]"
+                  name="Slowly Changing Dimension Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DF Load to FactSales\Slowly Changing FactSales.Inputs[Slowly Changing Dimension Input].Columns[customer_id]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="customer_id"
+                      externalMetadataColumnId="Package\DF Load to FactSales\Slowly Changing FactSales.Inputs[Slowly Changing Dimension Input].ExternalColumns[customer_id]"
+                      lineageId="Package\DF Load to FactSales\DimCustomer.Outputs[Lookup Match Output].Columns[customer_id]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">4</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DF Load to FactSales\Slowly Changing FactSales.Inputs[Slowly Changing Dimension Input].Columns[customer_key]"
+                      cachedDataType="i8"
+                      cachedName="customer_key"
+                      externalMetadataColumnId="Package\DF Load to FactSales\Slowly Changing FactSales.Inputs[Slowly Changing Dimension Input].ExternalColumns[customer_key]"
+                      lineageId="Package\DF Load to FactSales\DimCustomer.Outputs[Lookup Match Output].Columns[customer_key]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">4</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DF Load to FactSales\Slowly Changing FactSales.Inputs[Slowly Changing Dimension Input].Columns[freight_value]"
+                      cachedDataType="r4"
+                      cachedName="freight_value"
+                      externalMetadataColumnId="Package\DF Load to FactSales\Slowly Changing FactSales.Inputs[Slowly Changing Dimension Input].ExternalColumns[freight_value]"
+                      lineageId="Package\DF Load to FactSales\DimOrderItem.Outputs[Lookup Match Output].Columns[freight_value]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">4</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DF Load to FactSales\Slowly Changing FactSales.Inputs[Slowly Changing Dimension Input].Columns[order_id]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="order_id"
+                      externalMetadataColumnId="Package\DF Load to FactSales\Slowly Changing FactSales.Inputs[Slowly Changing Dimension Input].ExternalColumns[order_id]"
+                      lineageId="Package\DF Load to FactSales\DimOrderItem.Outputs[Lookup Match Output].Columns[order_id]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DF Load to FactSales\Slowly Changing FactSales.Inputs[Slowly Changing Dimension Input].Columns[payment_value]"
+                      cachedDataType="r4"
+                      cachedName="payment_value"
+                      externalMetadataColumnId="Package\DF Load to FactSales\Slowly Changing FactSales.Inputs[Slowly Changing Dimension Input].ExternalColumns[payment_value]"
+                      lineageId="Package\DF Load to FactSales\DimOrderPayment.Outputs[Lookup Match Output].Columns[payment_value]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">4</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DF Load to FactSales\Slowly Changing FactSales.Inputs[Slowly Changing Dimension Input].Columns[price]"
+                      cachedDataType="r4"
+                      cachedName="price"
+                      externalMetadataColumnId="Package\DF Load to FactSales\Slowly Changing FactSales.Inputs[Slowly Changing Dimension Input].ExternalColumns[price]"
+                      lineageId="Package\DF Load to FactSales\DimOrderItem.Outputs[Lookup Match Output].Columns[price]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">4</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DF Load to FactSales\Slowly Changing FactSales.Inputs[Slowly Changing Dimension Input].Columns[product_id]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="product_id"
+                      externalMetadataColumnId="Package\DF Load to FactSales\Slowly Changing FactSales.Inputs[Slowly Changing Dimension Input].ExternalColumns[product_id]"
+                      lineageId="Package\DF Load to FactSales\DimProduct.Outputs[Lookup Match Output].Columns[product_id]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">4</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DF Load to FactSales\Slowly Changing FactSales.Inputs[Slowly Changing Dimension Input].Columns[product_key]"
+                      cachedDataType="i8"
+                      cachedName="product_key"
+                      externalMetadataColumnId="Package\DF Load to FactSales\Slowly Changing FactSales.Inputs[Slowly Changing Dimension Input].ExternalColumns[product_key]"
+                      lineageId="Package\DF Load to FactSales\DimProduct.Outputs[Lookup Match Output].Columns[product_key]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">4</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DF Load to FactSales\Slowly Changing FactSales.Inputs[Slowly Changing Dimension Input].Columns[seller_id]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="seller_id"
+                      externalMetadataColumnId="Package\DF Load to FactSales\Slowly Changing FactSales.Inputs[Slowly Changing Dimension Input].ExternalColumns[seller_id]"
+                      lineageId="Package\DF Load to FactSales\DimSeller.Outputs[Lookup Match Output].Columns[seller_id]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">4</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DF Load to FactSales\Slowly Changing FactSales.Inputs[Slowly Changing Dimension Input].Columns[seller_key]"
+                      cachedDataType="i8"
+                      cachedName="seller_key"
+                      externalMetadataColumnId="Package\DF Load to FactSales\Slowly Changing FactSales.Inputs[Slowly Changing Dimension Input].ExternalColumns[seller_key]"
+                      lineageId="Package\DF Load to FactSales\DimSeller.Outputs[Lookup Match Output].Columns[seller_key]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">4</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DF Load to FactSales\Slowly Changing FactSales.Inputs[Slowly Changing Dimension Input].ExternalColumns[customer_id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="customer_id" />
+                    <externalMetadataColumn
+                      refId="Package\DF Load to FactSales\Slowly Changing FactSales.Inputs[Slowly Changing Dimension Input].ExternalColumns[customer_key]"
+                      dataType="i8"
+                      name="customer_key" />
+                    <externalMetadataColumn
+                      refId="Package\DF Load to FactSales\Slowly Changing FactSales.Inputs[Slowly Changing Dimension Input].ExternalColumns[freight_value]"
+                      dataType="r4"
+                      name="freight_value" />
+                    <externalMetadataColumn
+                      refId="Package\DF Load to FactSales\Slowly Changing FactSales.Inputs[Slowly Changing Dimension Input].ExternalColumns[order_id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="order_id" />
+                    <externalMetadataColumn
+                      refId="Package\DF Load to FactSales\Slowly Changing FactSales.Inputs[Slowly Changing Dimension Input].ExternalColumns[payment_value]"
+                      dataType="r4"
+                      name="payment_value" />
+                    <externalMetadataColumn
+                      refId="Package\DF Load to FactSales\Slowly Changing FactSales.Inputs[Slowly Changing Dimension Input].ExternalColumns[price]"
+                      dataType="r4"
+                      name="price" />
+                    <externalMetadataColumn
+                      refId="Package\DF Load to FactSales\Slowly Changing FactSales.Inputs[Slowly Changing Dimension Input].ExternalColumns[product_id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="product_id" />
+                    <externalMetadataColumn
+                      refId="Package\DF Load to FactSales\Slowly Changing FactSales.Inputs[Slowly Changing Dimension Input].ExternalColumns[product_key]"
+                      dataType="i8"
+                      name="product_key" />
+                    <externalMetadataColumn
+                      refId="Package\DF Load to FactSales\Slowly Changing FactSales.Inputs[Slowly Changing Dimension Input].ExternalColumns[seller_id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="seller_id" />
+                    <externalMetadataColumn
+                      refId="Package\DF Load to FactSales\Slowly Changing FactSales.Inputs[Slowly Changing Dimension Input].ExternalColumns[seller_key]"
+                      dataType="i8"
+                      name="seller_key" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DF Load to FactSales\Slowly Changing FactSales.Outputs[Unchanged Output]"
+                  description="Unchanged rows"
+                  exclusionGroup="1"
+                  name="Unchanged Output"
+                  synchronousInputId="Package\DF Load to FactSales\Slowly Changing FactSales.Inputs[Slowly Changing Dimension Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DF Load to FactSales\Slowly Changing FactSales.Outputs[New Output]"
+                  description="New rows"
+                  exclusionGroup="1"
+                  name="New Output"
+                  synchronousInputId="Package\DF Load to FactSales\Slowly Changing FactSales.Inputs[Slowly Changing Dimension Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DF Load to FactSales\Slowly Changing FactSales.Outputs[Fixed Attribute Output]"
+                  description="Rows with changes in columns tagged FixedAttribute"
+                  exclusionGroup="1"
+                  name="Fixed Attribute Output"
+                  synchronousInputId="Package\DF Load to FactSales\Slowly Changing FactSales.Inputs[Slowly Changing Dimension Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DF Load to FactSales\Slowly Changing FactSales.Outputs[Changing Attribute Updates Output]"
+                  description="These rows contain new information for ChangingAttribute (Type 1) column changes"
+                  exclusionGroup="1"
+                  name="Changing Attribute Updates Output"
+                  synchronousInputId="Package\DF Load to FactSales\Slowly Changing FactSales.Inputs[Slowly Changing Dimension Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DF Load to FactSales\Slowly Changing FactSales.Outputs[Historical Attribute Inserts Output]"
+                  description="HistoricalAttribute (Type 2) changes result in these new rows"
+                  exclusionGroup="2"
+                  name="Historical Attribute Inserts Output"
+                  synchronousInputId="Package\DF Load to FactSales\Slowly Changing FactSales.Inputs[Slowly Changing Dimension Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DF Load to FactSales\Slowly Changing FactSales.Outputs[Inferred Member Updates Output]"
+                  description="Information to update unpopulated initial dimension row"
+                  exclusionGroup="1"
+                  name="Inferred Member Updates Output"
+                  synchronousInputId="Package\DF Load to FactSales\Slowly Changing FactSales.Inputs[Slowly Changing Dimension Input]">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DF Load to FactSales\SRC - stgSales"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="SRC - stgSales"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[stgSales]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DF Load to FactSales\SRC - stgSales.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-RPKFSF0\SQLEXPRESS.FinalStage 1]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-RPKFSF0\SQLEXPRESS.FinalStage 1]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DF Load to FactSales\SRC - stgSales.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DF Load to FactSales\SRC - stgSales.Outputs[OLE DB Source Output].Columns[price]"
+                      dataType="r4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF Load to FactSales\SRC - stgSales.Outputs[OLE DB Source Output].ExternalColumns[price]"
+                      lineageId="Package\DF Load to FactSales\SRC - stgSales.Outputs[OLE DB Source Output].Columns[price]"
+                      name="price"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF Load to FactSales\SRC - stgSales.Outputs[OLE DB Source Output].Columns[freight_value]"
+                      dataType="r4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF Load to FactSales\SRC - stgSales.Outputs[OLE DB Source Output].ExternalColumns[freight_value]"
+                      lineageId="Package\DF Load to FactSales\SRC - stgSales.Outputs[OLE DB Source Output].Columns[freight_value]"
+                      name="freight_value"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF Load to FactSales\SRC - stgSales.Outputs[OLE DB Source Output].Columns[payment_value]"
+                      dataType="r4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF Load to FactSales\SRC - stgSales.Outputs[OLE DB Source Output].ExternalColumns[payment_value]"
+                      lineageId="Package\DF Load to FactSales\SRC - stgSales.Outputs[OLE DB Source Output].Columns[payment_value]"
+                      name="payment_value"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF Load to FactSales\SRC - stgSales.Outputs[OLE DB Source Output].Columns[order_id]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF Load to FactSales\SRC - stgSales.Outputs[OLE DB Source Output].ExternalColumns[order_id]"
+                      length="50"
+                      lineageId="Package\DF Load to FactSales\SRC - stgSales.Outputs[OLE DB Source Output].Columns[order_id]"
+                      name="order_id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF Load to FactSales\SRC - stgSales.Outputs[OLE DB Source Output].Columns[customer_id]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF Load to FactSales\SRC - stgSales.Outputs[OLE DB Source Output].ExternalColumns[customer_id]"
+                      length="50"
+                      lineageId="Package\DF Load to FactSales\SRC - stgSales.Outputs[OLE DB Source Output].Columns[customer_id]"
+                      name="customer_id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF Load to FactSales\SRC - stgSales.Outputs[OLE DB Source Output].Columns[seller_id]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF Load to FactSales\SRC - stgSales.Outputs[OLE DB Source Output].ExternalColumns[seller_id]"
+                      length="50"
+                      lineageId="Package\DF Load to FactSales\SRC - stgSales.Outputs[OLE DB Source Output].Columns[seller_id]"
+                      name="seller_id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF Load to FactSales\SRC - stgSales.Outputs[OLE DB Source Output].Columns[product_id]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF Load to FactSales\SRC - stgSales.Outputs[OLE DB Source Output].ExternalColumns[product_id]"
+                      length="50"
+                      lineageId="Package\DF Load to FactSales\SRC - stgSales.Outputs[OLE DB Source Output].Columns[product_id]"
+                      name="product_id"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DF Load to FactSales\SRC - stgSales.Outputs[OLE DB Source Output].ExternalColumns[price]"
+                      dataType="r4"
+                      name="price" />
+                    <externalMetadataColumn
+                      refId="Package\DF Load to FactSales\SRC - stgSales.Outputs[OLE DB Source Output].ExternalColumns[freight_value]"
+                      dataType="r4"
+                      name="freight_value" />
+                    <externalMetadataColumn
+                      refId="Package\DF Load to FactSales\SRC - stgSales.Outputs[OLE DB Source Output].ExternalColumns[payment_value]"
+                      dataType="r4"
+                      name="payment_value" />
+                    <externalMetadataColumn
+                      refId="Package\DF Load to FactSales\SRC - stgSales.Outputs[OLE DB Source Output].ExternalColumns[order_id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="order_id" />
+                    <externalMetadataColumn
+                      refId="Package\DF Load to FactSales\SRC - stgSales.Outputs[OLE DB Source Output].ExternalColumns[customer_id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="customer_id" />
+                    <externalMetadataColumn
+                      refId="Package\DF Load to FactSales\SRC - stgSales.Outputs[OLE DB Source Output].ExternalColumns[seller_id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="seller_id" />
+                    <externalMetadataColumn
+                      refId="Package\DF Load to FactSales\SRC - stgSales.Outputs[OLE DB Source Output].ExternalColumns[product_id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="product_id" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DF Load to FactSales\SRC - stgSales.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DF Load to FactSales\SRC - stgSales.Outputs[OLE DB Source Error Output].Columns[price]"
+                      dataType="r4"
+                      lineageId="Package\DF Load to FactSales\SRC - stgSales.Outputs[OLE DB Source Error Output].Columns[price]"
+                      name="price" />
+                    <outputColumn
+                      refId="Package\DF Load to FactSales\SRC - stgSales.Outputs[OLE DB Source Error Output].Columns[freight_value]"
+                      dataType="r4"
+                      lineageId="Package\DF Load to FactSales\SRC - stgSales.Outputs[OLE DB Source Error Output].Columns[freight_value]"
+                      name="freight_value" />
+                    <outputColumn
+                      refId="Package\DF Load to FactSales\SRC - stgSales.Outputs[OLE DB Source Error Output].Columns[payment_value]"
+                      dataType="r4"
+                      lineageId="Package\DF Load to FactSales\SRC - stgSales.Outputs[OLE DB Source Error Output].Columns[payment_value]"
+                      name="payment_value" />
+                    <outputColumn
+                      refId="Package\DF Load to FactSales\SRC - stgSales.Outputs[OLE DB Source Error Output].Columns[order_id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\DF Load to FactSales\SRC - stgSales.Outputs[OLE DB Source Error Output].Columns[order_id]"
+                      name="order_id" />
+                    <outputColumn
+                      refId="Package\DF Load to FactSales\SRC - stgSales.Outputs[OLE DB Source Error Output].Columns[customer_id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\DF Load to FactSales\SRC - stgSales.Outputs[OLE DB Source Error Output].Columns[customer_id]"
+                      name="customer_id" />
+                    <outputColumn
+                      refId="Package\DF Load to FactSales\SRC - stgSales.Outputs[OLE DB Source Error Output].Columns[seller_id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\DF Load to FactSales\SRC - stgSales.Outputs[OLE DB Source Error Output].Columns[seller_id]"
+                      name="seller_id" />
+                    <outputColumn
+                      refId="Package\DF Load to FactSales\SRC - stgSales.Outputs[OLE DB Source Error Output].Columns[product_id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\DF Load to FactSales\SRC - stgSales.Outputs[OLE DB Source Error Output].Columns[product_id]"
+                      name="product_id" />
+                    <outputColumn
+                      refId="Package\DF Load to FactSales\SRC - stgSales.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DF Load to FactSales\SRC - stgSales.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DF Load to FactSales\SRC - stgSales.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DF Load to FactSales\SRC - stgSales.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DF Load to FactSales.Paths[Lookup Match Output]"
+              endId="Package\DF Load to FactSales\DimSeller.Inputs[Lookup Input]"
+              name="Lookup Match Output"
+              startId="Package\DF Load to FactSales\DimCustomer.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\DF Load to FactSales.Paths[Lookup Match Output1]"
+              endId="Package\DF Load to FactSales\DimProduct.Inputs[Lookup Input]"
+              name="Lookup Match Output"
+              startId="Package\DF Load to FactSales\DimSeller.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\DF Load to FactSales.Paths[Lookup Match Output2]"
+              endId="Package\DF Load to FactSales\DimOrderPayment.Inputs[Lookup Input]"
+              name="Lookup Match Output"
+              startId="Package\DF Load to FactSales\DimProduct.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\DF Load to FactSales.Paths[Lookup Match Output3]"
+              endId="Package\DF Load to FactSales\DimCustomer.Inputs[Lookup Input]"
+              name="Lookup Match Output"
+              startId="Package\DF Load to FactSales\DimOrderItem.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\DF Load to FactSales.Paths[Lookup Match Output4]"
+              endId="Package\DF Load to FactSales\Slowly Changing FactSales.Inputs[Slowly Changing Dimension Input]"
+              name="Lookup Match Output"
+              startId="Package\DF Load to FactSales\DimOrderPayment.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\DF Load to FactSales.Paths[New Output]"
+              endId="Package\DF Load to FactSales\Insert Destination.Inputs[OLE DB Destination Input]"
+              name="New Output"
+              startId="Package\DF Load to FactSales\Slowly Changing FactSales.Outputs[New Output]" />
+            <path
+              refId="Package\DF Load to FactSales.Paths[OLE DB Source Output]"
+              endId="Package\DF Load to FactSales\DimOrderItem.Inputs[Lookup Input]"
+              name="OLE DB Source Output"
+              startId="Package\DF Load to FactSales\SRC - stgSales.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SQL - Truncate Stage Table"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{4A727820-4CAE-494B-A4DF-67E2C7B2C4EB}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SQL - Truncate Stage Table"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{ED79EFFB-F5DF-4E59-A8EB-5ED49CDC6DC0}"
+          SQLTask:SqlStatementSource="truncate table stgSales" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{DCA06C62-68DA-4733-990B-D6B340BB326A}"
+      DTS:From="Package\SQL - Truncate Stage Table"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\DF - Stage Sales" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{C1625507-5D6C-461E-B064-9615130C7FCB}"
+      DTS:From="Package\DF - Stage Sales"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\DF Load to FactSales" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="208,41.6"
+          Id="Package\SQL - Truncate Stage Table"
+          TopLeft="331.6666485452,42.4666663713588" />
+        <NodeLayout
+          Size="157.6,41.6"
+          Id="Package\DF - Stage Sales"
+          TopLeft="354.166647315854,136.066665720476" />
+        <NodeLayout
+          Size="178.4,41.6"
+          Id="Package\DF Load to FactSales"
+          TopLeft="342.499981286626,231.399998390873" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="434.316647930527,84.0666663713588">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,51.9999993491173"
+              Start="0,0"
+              End="0,44.4999993491173">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,44.4999993491173" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="432.33331430124,177.666665720476">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,53.7333326703973"
+              Start="0,0"
+              End="0,46.2333326703973">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,46.2333326703973" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\DF - Stage Sales">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="159.2,41.6"
+          Id="Package\DF - Stage Sales\SRC - Olist Sales"
+          TopLeft="319.999982515972,53.7333329596785" />
+        <NodeLayout
+          Size="178.4,41.6"
+          Id="Package\DF - Stage Sales\DST - Stage stgSales"
+          TopLeft="315.833316076961,175.066665449275" />
+        <EdgeLayout
+          Id="Package\DF - Stage Sales.Paths[OLE DB Source Output]"
+          TopLeft="402.316649296467,95.3333329596785">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,79.7333324895964"
+              Start="0,0"
+              End="0,72.2333324895964">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,72.2333324895964" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <TaskHost
+    design-time-name="Package\DF Load to FactSales">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="149.6,41.6"
+          Id="Package\DF Load to FactSales\SRC - stgSales"
+          TopLeft="76.0999993592501,45.4999994039535" />
+        <NodeLayout
+          Size="204.8,41.6"
+          Id="Package\DF Load to FactSales\Slowly Changing FactSales"
+          TopLeft="57.4999992251397,222.100005856156" />
+        <NodeLayout
+          Size="144,41.6"
+          Id="Package\DF Load to FactSales\DimOrderItem"
+          TopLeft="370.899995008111,45.1000009238719" />
+        <NodeLayout
+          Size="142.4,41.6"
+          Id="Package\DF Load to FactSales\DimCustomer"
+          TopLeft="657.699990746379,62.7000021755693" />
+        <NodeLayout
+          Size="124,41.6"
+          Id="Package\DF Load to FactSales\DimSeller"
+          TopLeft="709.899990105629,157.300002279877" />
+        <NodeLayout
+          Size="132.8,41.6"
+          Id="Package\DF Load to FactSales\DimProduct"
+          TopLeft="552.499992385507,194.900003233551" />
+        <NodeLayout
+          Size="164.8,41.6"
+          Id="Package\DF Load to FactSales\DimOrderPayment"
+          TopLeft="342.499995276332,222.500004336237" />
+        <EdgeLayout
+          Id="Package\DF Load to FactSales.Paths[Lookup Match Output]"
+          TopLeft="728.899990746379,104.300002175569">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="42.9999993592503,53.000000104308"
+              Start="0,0"
+              End="42.9999993592503,45.500000104308">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22.500000052154" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,22.500000052154"
+                    Point2="0,26.500000052154"
+                    Point3="4,26.500000052154" />
+                  <mssgle:LineSegment
+                    End="38.9999993592503,26.500000052154" />
+                  <mssgle:CubicBezierSegment
+                    Point1="38.9999993592503,26.500000052154"
+                    Point2="42.9999993592503,26.500000052154"
+                    Point3="42.9999993592503,30.500000052154" />
+                  <mssgle:LineSegment
+                    End="42.9999993592503,45.500000104308" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-26.6913870391249,31.500000052154,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DF Load to FactSales.Paths[Lookup Match Output1]"
+          TopLeft="709.899990105629,178.100002279877">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-24.5999977201224,37.6000009536742"
+              Start="0,0"
+              End="-17.0999977201224,37.6000009536742">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-8.29999886006118,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-8.29999886006118,0"
+                    Point2="-12.2999988600612,0"
+                    Point3="-12.2999988600612,4" />
+                  <mssgle:LineSegment
+                    End="-12.2999988600612,33.6000009536742" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-12.2999988600612,33.6000009536742"
+                    Point2="-12.2999988600612,37.6000009536742"
+                    Point3="-16.2999988600612,37.6000009536742" />
+                  <mssgle:LineSegment
+                    End="-17.0999977201224,37.6000009536742" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-60.4913855788112,-17.609375,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DF Load to FactSales.Paths[Lookup Match Output2]"
+          TopLeft="552.499992385507,215.700003233551">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-45.1999971091747,27.600001102686"
+              Start="0,0"
+              End="-37.6999971091747,27.600001102686">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-18.5999985545874,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-18.5999985545874,0"
+                    Point2="-22.5999985545874,0"
+                    Point3="-22.5999985545874,4" />
+                  <mssgle:LineSegment
+                    End="-22.5999985545874,23.600001102686" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-22.5999985545874,23.600001102686"
+                    Point2="-22.5999985545874,27.600001102686"
+                    Point3="-26.5999985545874,27.600001102686" />
+                  <mssgle:LineSegment
+                    End="-37.6999971091747,27.600001102686" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-70.7913852733374,-17.609375,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DF Load to FactSales.Paths[OLE DB Source Output]"
+          TopLeft="225.69999935925,66.1000001639127">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="145.199995648861,0"
+              Start="0,0"
+              End="137.699995648861,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="137.699995648861,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DF Load to FactSales.Paths[Lookup Match Output3]"
+          TopLeft="514.899995008111,65.9000009238719">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="142.799995738268,17.6000012516974"
+              Start="0,0"
+              End="135.299995738268,17.6000012516974">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="67.3999978691339,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="67.3999978691339,0"
+                    Point2="71.3999978691339,0"
+                    Point3="71.3999978691339,4" />
+                  <mssgle:LineSegment
+                    End="71.3999978691339,13.6000012516974" />
+                  <mssgle:CubicBezierSegment
+                    Point1="71.3999978691339,13.6000012516974"
+                    Point2="71.3999978691339,17.6000012516974"
+                    Point3="75.3999978691339,17.6000012516974" />
+                  <mssgle:LineSegment
+                    End="135.299995738268,17.6000012516974" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="23.2086111503839,-17.609375,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DF Load to FactSales.Paths[Lookup Match Output4]"
+          TopLeft="342.499995276332,243.100005096197">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-80.1999960511924,0"
+              Start="0,0"
+              End="-72.6999960511924,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-72.6999960511924,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-84.5413847443462,5,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="159.2,41.6"
+          Id="Package\DF Load to FactSales\Insert Destination"
+          TopLeft="101.299998912215,294.700006288289" />
+        <EdgeLayout
+          Id="Package\DF Load to FactSales.Paths[New Output]"
+          TopLeft="159.89999922514,263.700005856156">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="20.9999996870756,31.0000004321337"
+              Start="0,0"
+              End="20.9999996870756,23.5000004321337">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,11.5000002160669" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,11.5000002160669"
+                    Point2="0,15.5000002160669"
+                    Point3="4,15.5000002160669" />
+                  <mssgle:LineSegment
+                    End="16.9999996870756,15.5000002160669" />
+                  <mssgle:CubicBezierSegment
+                    Point1="16.9999996870756,15.5000002160669"
+                    Point2="20.9999996870756,15.5000002160669"
+                    Point3="20.9999996870756,19.5000002160669" />
+                  <mssgle:LineSegment
+                    End="20.9999996870756,23.5000004321337" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-16.5913868752122,20.5000002160669,54.1827734375,11.43359375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DF - Stage Sales\SRC - Olist Sales">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DF - Stage Sales\DST - Stage stgSales">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DF Load to FactSales\SRC - stgSales">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DF Load to FactSales\Slowly Changing FactSales">
+    <Properties>
+      <Property>
+        <Name>SCDMetadata</Name>
+        <Value
+          type="q2:string">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SCDWizardMetadata xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;
+  &lt;ConnectionID&gt;{36598EE3-0FF7-46B0-9ECF-03D0E6230B00}&lt;/ConnectionID&gt;
+  &lt;TableName&gt;[dbo].[fact_sales]&lt;/TableName&gt;
+  &lt;InputToColumnsCollection&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;DimCustomer.Outputs[Lookup Match Output].Columns[customer_id]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;customer_id&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;FixedAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;DimCustomer.Outputs[Lookup Match Output].Columns[customer_key]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;customer_key&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;FixedAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;DimOrderItem.Outputs[Lookup Match Output].Columns[freight_value]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;freight_value&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;FixedAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;DimOrderItem.Outputs[Lookup Match Output].Columns[order_id]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;order_id&lt;/ColumnName&gt;
+      &lt;KeyType&gt;BusinessKey&lt;/KeyType&gt;
+      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;DimOrderPayment.Outputs[Lookup Match Output].Columns[payment_value]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;payment_value&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;FixedAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;DimOrderItem.Outputs[Lookup Match Output].Columns[price]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;price&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;FixedAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;DimProduct.Outputs[Lookup Match Output].Columns[product_id]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;product_id&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;FixedAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;DimProduct.Outputs[Lookup Match Output].Columns[product_key]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;product_key&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;FixedAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;DimSeller.Outputs[Lookup Match Output].Columns[seller_id]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;seller_id&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;FixedAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;DimSeller.Outputs[Lookup Match Output].Columns[seller_key]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;seller_key&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;FixedAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+  &lt;/InputToColumnsCollection&gt;
+  &lt;GeneratedComponentsIdentificationStrings&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;Insert Destination&lt;/anyType&gt;
+  &lt;/GeneratedComponentsIdentificationStrings&gt;
+  &lt;FailFixedAttribute&gt;true&lt;/FailFixedAttribute&gt;
+  &lt;FailChangeAttribute&gt;false&lt;/FailChangeAttribute&gt;
+  &lt;UseStartEndDate&gt;false&lt;/UseStartEndDate&gt;
+  &lt;CurrentIndicatorColumn /&gt;
+  &lt;InferredIndicatorColumn /&gt;
+  &lt;ValueCurrent /&gt;
+  &lt;ValueExpired /&gt;
+  &lt;StartDateColumn /&gt;
+  &lt;EndDateColumn /&gt;
+  &lt;DateVariable /&gt;
+  &lt;EnableInferredSupport&gt;false&lt;/EnableInferredSupport&gt;
+&lt;/SCDWizardMetadata&gt;</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DF Load to FactSales\DimOrderItem">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[dim_order_items]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DF Load to FactSales\DimCustomer">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[dim_customer]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DF Load to FactSales\DimSeller">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[dim_seller]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DF Load to FactSales\DimProduct">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[dim_product]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DF Load to FactSales\DimOrderPayment">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[dim_order_payment]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
